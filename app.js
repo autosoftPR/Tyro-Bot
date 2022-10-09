@@ -1,5 +1,5 @@
 const { DiscordAPIError } = require('discord.js')
-const Disord = require('discord.js')
+const Discord = require('discord.js')
 
 const client = new Discord.Client();
 
