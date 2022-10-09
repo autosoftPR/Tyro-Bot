@@ -1,0 +1,19 @@
+{
+  "name": "tyro-bot",
+  "version": "1.0.0",
+  "description": "Tyro is an open source code for `Discord`",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AUTOSOFT-Development/Tyro-Bot.git"
+  },
+  "author": "AUTOSOFT-Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AUTOSOFT-Development/Tyro-Bot/issues"
+  },
+  "homepage": "https://github.com/AUTOSOFT-Development/Tyro-Bot#readme"
+}
