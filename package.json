@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/AUTOSOFT-Development/Tyro-Bot/issues"
   },
-  "homepage": "https://github.com/AUTOSOFT-Development/Tyro-Bot#readme"
+  "homepage": "https://github.com/AUTOSOFT-Development/Tyro-Bot#readme",
+  "dependencies": {
+    "discord.js": "^14.5.0"
+  }
 }
