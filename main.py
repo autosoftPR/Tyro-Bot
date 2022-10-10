@@ -1,18 +1,18 @@
 import discord
-import os
-import requests
 
-client = discord.Client()
+class MyClient(discord.Client):
+    async def on_ready(self):
+        print('Logged on as', self.user)
 
-@client.event
-async def on_ready():
-    print('We have logged in as {0.user}.format(client)')
+    async def on_message(self, message):
+        # don't respond to ourselves
+        if message.author == self.user:
+            return
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-    if message.content.startswith('$hello'):
-        await message.channel.send("Hello!")
+        if message.content == 'ping':
+            await message.channel.send('pong')
 
-client.run(os.getenv('TOKEN'))
+intents = discord.Intents.default()
+intents.message_content = True
+client = MyClient(intents=intents)
+client.run('MTAyODY0NTQ3MzAyOTk5NjY0NA.GYeN9X.oi6SDAXi1itMdtJLPw9vtIynoqOeSUYnTP-DmY')
