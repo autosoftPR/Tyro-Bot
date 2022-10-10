@@ -1,9 +1,9 @@
 from email.quoprimime import quote
 from urllib.parse import quote_plus
 from webbrowser import get
-import discord as discord
+import discord
 import os
-import requests as requests
+import requests
 import json
 
 client = discord.Client()
