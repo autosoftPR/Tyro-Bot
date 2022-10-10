@@ -1,3 +1,3 @@
 # Tyro-Bot
 
-Tyro is an open source code for `Discord`
+The code source of how we're making [`Tryo Bot`]
