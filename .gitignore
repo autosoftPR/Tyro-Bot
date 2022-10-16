@@ -1754,3 +1754,4 @@ node_modules/@discordjs/builders/dist/index.js
 node_modules/@discordjs/builders/dist/index.d.ts
 node_modules/@discordjs/builders/CHANGELOG.md
 node_modules/.package-lock.json
+config.json
