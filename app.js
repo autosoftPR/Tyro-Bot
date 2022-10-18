@@ -20,10 +20,10 @@ client.on('interactionCreate', async interaction => {
     await interaction.reply('Pong!');
   } else {
     if (commandName === 'server') {
-      await interaction.reply('Server info.');
+      await interaction.reply(`This server is ${interaction.guild.name} and has ${interaction.guild.memberCount} members.`);
     } else {
       if (commandName === 'user') {
-        await interaction.reply('User info.');
+        await interaction.reply(`This command was run by ${interaction.user.username}, who joined on ${interaction.member.joinedAt}`);
       } else {
         if (commandName === 'developers') {
           await interaction.reply('autosoftPR');
