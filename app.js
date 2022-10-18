@@ -1,10 +1,13 @@
 // Require the necessary discord.js classes
-const { Client, GatewayIntentBits, SlashCommandBuilder } = require('discord.js');
+/* const fs = require('node:fs');
+const path = require('node:path'); */
+const { Client, GatewayIntentBits, SlashCommandBuilder, Collection } = require('discord.js');
 const { token } = require('./config.json');
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
+client.commands = new Collection();
 
 // When the client is ready, run this code (only once)
 client.on('ready', () => {
@@ -18,6 +21,8 @@ client.on('interactionCreate', async interaction => {
 
   if (commandName === 'ping') {
     await interaction.reply('Pong!');
+    await wait(2000);
+    await interaction.editReply('Pong again!')
   } else {
     if (commandName === 'server') {
       await interaction.reply(`This server is ${interaction.guild.name} and has ${interaction.guild.memberCount} members.`);
