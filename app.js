@@ -1,6 +1,7 @@
 // Require the necessary discord.js classes
-/* const fs = require('node:fs');
-const path = require('node:path'); */
+const fs = require('node:fs');
+const path = require('node:path');
+const wait = require('node:timers/promises').setTimeout;
 const { Client, GatewayIntentBits, SlashCommandBuilder, Collection } = require('discord.js');
 const { token } = require('./config.json');
 
@@ -21,7 +22,7 @@ client.on('interactionCreate', async interaction => {
 
   if (commandName === 'ping') {
     await interaction.reply('Pong!');
-    await wait(2000);
+    await wait(4000);
     await interaction.editReply('Pong again!')
   } else {
     if (commandName === 'server') {
