@@ -22,8 +22,6 @@ client.on('interactionCreate', async interaction => {
 
   if (commandName === 'ping') {
     await interaction.reply('Pong!');
-    await wait(4000);
-    await interaction.editReply('Pong again!')
   } else {
     if (commandName === 'server') {
       await interaction.reply(`This server is ${interaction.guild.name} and has ${interaction.guild.memberCount} members.`);
