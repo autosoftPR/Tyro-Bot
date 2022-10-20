@@ -7,6 +7,7 @@ const commands = [
 	new SlashCommandBuilder().setName('user').setDescription('Replies with user info!'),
     new SlashCommandBuilder().setName('developers').setDescription('Replies with autosoftPR'),
 	new SlashCommandBuilder().setName('version').setDescription('Replies with bot version'),
+	new SlashCommandBuilder().setName('button').setDescription('Replies with button')
 ]
 	.map(command => command.toJSON());
 
