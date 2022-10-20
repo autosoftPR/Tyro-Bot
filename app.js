@@ -1,14 +1,9 @@
 // Require the necessary discord.js classes
-const fs = require('node:fs');
-const path = require('node:path');
-const wait = require('node:timers/promises').setTimeout;
-const { Client, GatewayIntentBits, SlashCommandBuilder, Collection } = require('discord.js');
+const { Client, GatewayIntentBits, SlashCommandBuilder, Events} = require('discord.js');
 const { token } = require('./config.json');
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-
-client.commands = new Collection();
 
 // When the client is ready, run this code (only once)
 client.on('ready', () => {
@@ -31,11 +26,24 @@ client.on('interactionCreate', async interaction => {
       } else {
         if (commandName === 'developers') {
           await interaction.reply('autosoftPR');
-        }
-      }
-    }
-  }
-})
+        } else {
+          if(commandName === 'version') {
+            await interaction.reply('Bot version is in the early alpha tests');
+          };
+        };
+      };
+    };
+  };
+});
+
+client.on(Events.InteractionCreate, interaction => {
+  const locales = {
+    pl: 'Witaj Świecie!',
+    de: 'Hallo Welt!',
+    ar: 'مرحبا',
+  };
+  interaction.reply(locales[interaction.locale] ?? 'Hello World (default is english)');
+});
 
 // Login to Discord with your client's token
 client.login(token);
