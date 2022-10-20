@@ -1,5 +1,6 @@
 // Require the necessary discord.js classes
-const { Client, GatewayIntentBits, SlashCommandBuilder, Events} = require('discord.js');
+const { Client, GatewayIntentBits, SlashCommandBuilder, Events, EmbedBuilder} = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const { token } = require('./config.json');
 
 // Create a new client instance
@@ -36,13 +37,28 @@ client.on('interactionCreate', async interaction => {
   };
 });
 
-client.on(Events.InteractionCreate, interaction => {
-  const locales = {
-    pl: 'Witaj Świecie!',
-    de: 'Hallo Welt!',
-    ar: 'مرحبا',
-  };
-  interaction.reply(locales[interaction.locale] ?? 'Hello World (default is english)');
+
+// Buttons
+client.on(Events.InteractionCreate, async interaction => {
+	if (!interaction.isChatInputCommand()) return;
+
+	if (interaction.commandName === 'button') {
+		const row = new ActionRowBuilder()
+			.addComponents(
+				new ButtonBuilder()
+					.setCustomId('primary')
+          .setLabel('Click above')
+					.setStyle(ButtonStyle.Primary)
+          .setDisabled(false)
+			);
+
+    const embed = new EmbedBuilder()
+        .setColor(0x0099FF)
+        .setTitle('Our members')
+        .setURL('https://autosoft.netlify.app')
+
+		await interaction.reply({ content: 'I think you should,', ephemeral: true, embeds: [embed], components: [row] });
+	}
 });
 
 // Login to Discord with your client's token
