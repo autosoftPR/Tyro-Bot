@@ -47,7 +47,7 @@ client.on(Events.InteractionCreate, async interaction => {
 			.addComponents(
 				new ButtonBuilder()
 					.setCustomId('primary')
-          .setLabel('Click above')
+          .setLabel('Click Here')
 					.setStyle(ButtonStyle.Primary)
           .setDisabled(false)
 			);
@@ -56,7 +56,6 @@ client.on(Events.InteractionCreate, async interaction => {
         .setColor(0x0099FF)
         .setTitle('Our members')
         .setURL('https://autosoft.netlify.app')
-
 		await interaction.reply({ content: 'I think you should,', ephemeral: true, embeds: [embed], components: [row] });
 	}
 });
