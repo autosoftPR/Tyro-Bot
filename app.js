@@ -46,18 +46,45 @@ client.on(Events.InteractionCreate, async interaction => {
 		const row = new ActionRowBuilder()
 			.addComponents(
 				new ButtonBuilder()
-					.setCustomId('primary')
           .setLabel('Click Here')
-					.setStyle(ButtonStyle.Primary)
+					.setStyle(ButtonStyle.Link)
+          .setURL('https://autosoft.netlify.app')
           .setDisabled(false)
 			);
 
     const embed = new EmbedBuilder()
         .setColor(0x0099FF)
         .setTitle('Our members')
-        .setURL('https://autosoft.netlify.app')
-		await interaction.reply({ content: 'I think you should,', ephemeral: true, embeds: [embed], components: [row] });
-	}
+   
+		await interaction.reply({ 
+      content: 'I think you should,', 
+      ephemeral: true, 
+      embeds: [embed], 
+      components: [row] 
+    });
+	} else {
+    if (interaction.commandName = 'developer-ws') {
+      const row = new ActionRowBuilder()
+      .addComponents(
+        new ButtonBuilder()
+          .setLabel('Click Here')
+          .setStyle(ButtonStyle.Link)
+          .setURL('https://yasserfedsi.netlify.app')
+          .setDisabled(false)
+      );
+
+      const embed = new EmbedBuilder()
+        .setColor(0x0099FF)
+        .setTitle('Developer website')
+
+      await interaction.reply({
+        content: 'Visit this',
+        ephemeral: true,
+        embeds: [embed],
+        components: [row]
+      });
+    };
+  };
 });
 
 // Login to Discord with your client's token
