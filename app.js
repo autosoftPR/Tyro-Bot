@@ -58,7 +58,7 @@ client.on(Events.InteractionCreate, async interaction => {
    
 		await interaction.reply({ 
       content: 'I think you should,', 
-      ephemeral: true, 
+      ephemeral: false, 
       embeds: [embed], 
       components: [row] 
     });
