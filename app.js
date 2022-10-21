@@ -29,7 +29,7 @@ client.on('interactionCreate', async interaction => {
           await interaction.reply('autosoftPR');
         } else {
           if(commandName === 'version') {
-            await interaction.reply('Bot version is in the early alpha tests');
+            await interaction.reply('The bot is in the early alpha tests');
           };
         };
       };
