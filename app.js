@@ -52,6 +52,7 @@ client.on(Events.InteractionCreate, async interaction => {
           .setDisabled(false)
 			);
 
+    // embeds
     const embed = new EmbedBuilder()
         .setColor(0x0099FF)
         .setTitle('Our members')
@@ -73,6 +74,7 @@ client.on(Events.InteractionCreate, async interaction => {
           .setDisabled(false)
       );
 
+      // embeds
       const embed = new EmbedBuilder()
         .setColor(0x0099FF)
         .setTitle('Developer website')
