@@ -30,7 +30,11 @@ client.on('interactionCreate', async interaction => {
         } else {
           if(commandName === 'version') {
             await interaction.reply('The bot is in the early alpha tests');
-          };
+          } else {
+            if (commandName === 'help') {
+              await interaction.reply(`The server has the following ${interaction.client.application}`)
+            }
+          }
         };
       };
     };
