@@ -1,5 +1,5 @@
 // Require the necessary discord.js classes
-const { Client, GatewayIntentBits, SlashCommandBuilder, Events, EmbedBuilder} = require('discord.js');
+const { Client, GatewayIntentBits, SlashCommandBuilder, Events, EmbedBuilder, ChatInputCommandInteraction} = require('discord.js');
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const { token } = require('./config.json');
 
@@ -25,17 +25,9 @@ client.on('interactionCreate', async interaction => {
       if (commandName === 'user') {
         await interaction.reply(`This command was run by ${interaction.user.username}, who joined on ${interaction.member.joinedAt}`);
       } else {
-        if (commandName === 'developers') {
-          await interaction.reply('autosoftPR');
-        } else {
-          if(commandName === 'version') {
-            await interaction.reply('The bot is in the early alpha tests');
-          } else {
-            if (commandName === 'help') {
-              await interaction.reply(`The server has the following ${interaction.client.application}`)
-            }
-          }
-        };
+        if (commandName === 'version') {
+          await interaction.reply('The bot is in the early alpha tests')
+        }
       };
     };
   };
@@ -44,54 +36,8 @@ client.on('interactionCreate', async interaction => {
 
 // Buttons
 client.on(Events.InteractionCreate, async interaction => {
-	if (!interaction.isChatInputCommand()) return;
-
-	if (interaction.commandName === 'button') {
-		const row = new ActionRowBuilder()
-			.addComponents(
-				new ButtonBuilder()
-          .setLabel('Click Here')
-					.setStyle(ButtonStyle.Link)
-          .setURL('https://autosoft.netlify.app')
-          .setDisabled(false)
-			);
-
-    // embeds
-    const embed = new EmbedBuilder()
-        .setColor(0x0099FF)
-        .setTitle('Our members')
-   
-		await interaction.reply({ 
-      content: 'I think you should,', 
-      ephemeral: false, 
-      embeds: [embed], 
-      components: [row] 
-    });
-	} else {
-    if (interaction.commandName = 'developer-ws') {
-      const row = new ActionRowBuilder()
-      .addComponents(
-        new ButtonBuilder()
-          .setLabel('Click Here')
-          .setStyle(ButtonStyle.Link)
-          .setURL('https://yasserfedsi.netlify.app')
-          .setDisabled(false)
-      );
-
-      // embeds
-      const embed = new EmbedBuilder()
-        .setColor(0x0099FF)
-        .setTitle('Developer website')
-
-      await interaction.reply({
-        content: 'Visit this',
-        ephemeral: true,
-        embeds: [embed],
-        components: [row]
-      });
-    };
-  };
-});
+  if (!interaction.isChatInputCommand()) return;
+})
 
 // Login to Discord with your client's token
 client.login(token);
